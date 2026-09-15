@@ -77,7 +77,7 @@ export default async function HomePage() {
                 {settings.tagline}
               </p>
               <p className="mt-4 max-w-xl text-muted">
-                No published cases yet. Sign in as admin to add the first file.
+                No published cases yet.
               </p>
             </>
           )}
