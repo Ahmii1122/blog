@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #070708;
+  --foreground: #f3efe6;
+  --muted: #9c9588;
+  --card: #101014;
+  --card-2: #16161c;
+  --line: rgba(243, 239, 230, 0.1);
+  --crimson: #d3122a;
+  --crimson-dim: #8a1020;
+  --amber: #d4a017;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-line: var(--line);
+  --color-crimson: var(--crimson);
+  --color-crimson-dim: var(--crimson-dim);
+  --color-amber: var(--amber);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.story-body > * + * {
+  margin-top: 1.15rem;
+}
+
+.story-body h2,
+.story-body h3 {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.story-body h2 {
+  font-size: 1.7rem;
+  margin-top: 2.4rem;
+}
+
+.story-body h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+}
+
+.story-body p,
+.story-body li {
+  color: #c9c3b6;
+  line-height: 1.85;
+  font-size: 1.05rem;
+}
+
+.story-body a {
+  color: var(--crimson);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.story-body strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.story-body ul,
+.story-body ol {
+  padding-left: 1.25rem;
+}
+
+.story-body blockquote {
+  border-left: 2px solid var(--crimson);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 1.2rem;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 1px var(--crimson);
+}
+
+.field {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--line);
+  background: #0c0c10;
+  padding: 0.65rem 0.8rem;
+  color: var(--foreground);
 }

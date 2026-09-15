@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverExternalPackages: ["mongoose"],
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "100mb",
+    },
+    proxyClientMaxBodySize: "100mb",
+  },
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
