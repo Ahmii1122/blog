@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getStoryBySlug } from "@/lib/data";
 import { splitTags, youtubeEmbedUrl } from "@/lib/youtube";
 import { roleLabel } from "@/lib/utils";
+import { User } from "lucide-react";
 import { MarkdownBody } from "@/components/site/MarkdownBody";
 import { StatusBadge } from "@/components/site/StatusBadge";
 import { YouTubeEmbed } from "@/components/site/YouTubeEmbed";
@@ -121,8 +122,8 @@ export default async function CasePage({ params }: Params) {
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={person.photo} alt="" className="h-56 w-full shrink-0 object-cover" />
                     ) : (
-                      <div className="grid h-56 w-full shrink-0 place-items-center bg-card-2 font-serif text-5xl text-muted">
-                        {person.name.slice(0, 1)}
+                      <div className="grid h-56 w-full shrink-0 place-items-center bg-card-2 text-muted">
+                        <User className="h-16 w-16" strokeWidth={1.25} />
                       </div>
                     )}
                     <div className="p-5">
