@@ -116,12 +116,12 @@ export default async function CasePage({ params }: Params) {
               <h2 className="font-serif text-3xl">The names in the file</h2>
               <div className="mt-8 grid gap-5 sm:grid-cols-2">
                 {story.people.map((person, index) => (
-                  <article key={`${person.name}-${index}`} className="overflow-hidden rounded-2xl border border-line bg-card">
+                  <article key={`${person.name}-${index}`} className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-card">
                     {person.photo ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={person.photo} alt="" className="h-56 w-full object-cover" />
+                      <img src={person.photo} alt="" className="h-56 w-full shrink-0 object-cover" />
                     ) : (
-                      <div className="grid h-40 place-items-center bg-card-2 font-serif text-4xl text-muted">
+                      <div className="grid h-56 w-full shrink-0 place-items-center bg-card-2 font-serif text-5xl text-muted">
                         {person.name.slice(0, 1)}
                       </div>
                     )}
