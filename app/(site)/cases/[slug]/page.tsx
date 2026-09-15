@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { getStoryBySlug } from "@/lib/data";
 import { splitTags, youtubeEmbedUrl } from "@/lib/youtube";
 import { roleLabel } from "@/lib/utils";
-import { User } from "lucide-react";
+import { ArrowLeft, User } from "lucide-react";
 import { MarkdownBody } from "@/components/site/MarkdownBody";
 import { StatusBadge } from "@/components/site/StatusBadge";
 import { YouTubeEmbed } from "@/components/site/YouTubeEmbed";
@@ -47,8 +47,12 @@ export default async function CasePage({ params }: Params) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/25" />
         <div className="relative mx-auto flex min-h-[52vh] max-w-6xl flex-col justify-end px-5 pb-12 pt-24">
-          <Link href="/cases" className="mb-4 text-xs uppercase tracking-[0.2em] text-muted hover:text-foreground">
-            ← All cases
+          <Link
+            href="/cases"
+            className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-black/70 px-3.5 py-1.5 text-xs uppercase tracking-[0.18em] text-white shadow-lg backdrop-blur-md hover:bg-black/85"
+          >
+            <ArrowLeft size={14} />
+            All cases
           </Link>
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <StatusBadge status={story.status} />
