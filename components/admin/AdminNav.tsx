@@ -25,7 +25,7 @@ export function AdminNav() {
     <aside className="sticky top-0 z-30 flex w-full shrink-0 flex-col border-b border-line bg-card lg:h-full lg:w-60 lg:border-b-0 lg:border-r">
       <div className="flex items-center justify-between px-5 py-5">
         <Link href="/admin" className="font-serif text-xl">
-          Case Files
+          Crime Codex
         </Link>
         <Link href="/" className="text-xs uppercase tracking-[0.16em] text-muted hover:text-foreground">
           Site
