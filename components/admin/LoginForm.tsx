@@ -31,27 +31,27 @@ export function LoginForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="mx-auto mt-10 max-w-sm space-y-4">
-      <label className="block text-sm text-muted">
+    <form onSubmit={onSubmit} className="mt-8 w-full space-y-4 text-left">
+      <label className="block text-left text-sm text-muted">
         Username
         <input
           name="username"
           required
           autoComplete="username"
-          className="mt-1 h-11 w-full rounded-xl border border-line bg-card px-3 text-foreground"
+          className="mt-1 h-11 w-full rounded-xl border border-line bg-background/80 px-3 text-left text-foreground"
         />
       </label>
-      <label className="block text-sm text-muted">
+      <label className="block text-left text-sm text-muted">
         Password
         <input
           name="password"
           type="password"
           required
           autoComplete="current-password"
-          className="mt-1 h-11 w-full rounded-xl border border-line bg-card px-3 text-foreground"
+          className="mt-1 h-11 w-full rounded-xl border border-line bg-background/80 px-3 text-left text-foreground"
         />
       </label>
-      {error ? <p className="text-sm text-crimson">{error}</p> : null}
+      {error ? <p className="text-left text-sm text-crimson">{error}</p> : null}
       <button
         disabled={pending}
         className="h-11 w-full rounded-full bg-crimson text-sm font-medium text-white disabled:opacity-60"
