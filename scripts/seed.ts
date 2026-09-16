@@ -40,7 +40,7 @@ async function main() {
   await Category.deleteMany({});
 
   await Setting.insertMany([
-    { key: "siteName", value: "Case Files" },
+    { key: "siteName", value: "Crime Codex" },
     {
       key: "tagline",
       value: "Crime stories explained — the facts, the people, the timeline.",
@@ -49,7 +49,7 @@ async function main() {
     {
       key: "about",
       value:
-        "Case Files is the written archive behind the channel. Each episode gets a full case page: the story in text, the people involved, a timeline of events, sources, and any photos or clips that belong with the file.\n\nThe videos stay visual-free by design. This site is where the rest of the case lives — so viewers can slow down, re-read, and follow every beat.\n\nUpload only media you have the right to use.",
+        "Crime Codex is the written archive behind the channel. Each episode gets a full case page: the story in text, the people involved, a timeline of events, sources, and any photos or clips that belong with the file.\n\nThe videos stay visual-free by design. This site is where the rest of the case lives — so viewers can slow down, re-read, and follow every beat.\n\nUpload only media you have the right to use.",
     },
   ]);
 
