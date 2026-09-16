@@ -1,17 +1,15 @@
 import Link from "next/link";
 import { getSettings } from "@/lib/settings";
-import { isAdmin } from "@/lib/auth";
 
 export async function SiteHeader() {
   const settings = await getSettings();
-  const admin = await isAdmin();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <Link href="/" className="group flex items-center gap-3">
           <span className="grid h-8 w-8 place-items-center rounded-sm bg-crimson text-[11px] font-semibold tracking-[0.2em] text-white">
-            CF
+            CC
           </span>
           <span className="font-serif text-xl tracking-tight text-foreground group-hover:text-crimson">
             {settings.siteName}
@@ -34,12 +32,6 @@ export async function SiteHeader() {
               YouTube
             </a>
           ) : null}
-          <Link
-            href={admin ? "/admin" : "/login"}
-            className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-[0.16em] text-foreground hover:border-crimson hover:text-crimson"
-          >
-            {admin ? "Admin" : "Sign in"}
-          </Link>
         </nav>
       </div>
     </header>
