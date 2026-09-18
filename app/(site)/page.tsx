@@ -32,7 +32,7 @@ export default async function HomePage() {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-background/30" />
         <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-end px-5 pb-16 pt-28">
-          <p className="mb-4 text-[11px] uppercase tracking-[0.32em] text-crimson">
+          <p className="mb-4 text-[11px] uppercase tracking-[0.32em] text-crimson-text">
             {settings.siteName} · Case archive
           </p>
           {featured ? (
@@ -109,7 +109,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-6xl px-5 pb-20">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.24em] text-crimson">Latest files</p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-crimson-text">Latest files</p>
             <h2 className="mt-2 font-serif text-4xl">The archive</h2>
           </div>
           <Link href="/cases" className="text-sm text-muted hover:text-foreground">
