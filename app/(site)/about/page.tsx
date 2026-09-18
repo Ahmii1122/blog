@@ -11,7 +11,7 @@ export default async function AboutPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-16">
-      <p className="text-[11px] uppercase tracking-[0.24em] text-crimson">The channel</p>
+      <p className="text-[11px] uppercase tracking-[0.24em] text-crimson-text">The channel</p>
       <h1 className="mt-2 font-serif text-5xl tracking-tight">{settings.siteName}</h1>
       <p className="mt-4 text-lg text-muted">{settings.tagline}</p>
       <div className="mt-10">
