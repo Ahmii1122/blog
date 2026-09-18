@@ -23,7 +23,7 @@ export default async function AdminHome() {
     <div className="mx-auto max-w-5xl">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-[11px] uppercase tracking-[0.24em] text-crimson">Admin</p>
+          <p className="text-[11px] uppercase tracking-[0.24em] text-crimson-text">Admin</p>
           <h1 className="mt-1 font-serif text-4xl">Dashboard</h1>
         </div>
         <Link href="/admin/cases/new" className="rounded-full bg-crimson px-4 py-2 text-sm text-white">

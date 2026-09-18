@@ -44,7 +44,7 @@ export default async function CasesPage({
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-14">
-      <p className="text-[11px] uppercase tracking-[0.24em] text-crimson">Archive</p>
+      <p className="text-[11px] uppercase tracking-[0.24em] text-crimson-text">Archive</p>
       <h1 className="mt-2 font-serif text-5xl tracking-tight">All case files</h1>
       <p className="mt-3 max-w-2xl text-muted">
         Search the written stories, filter by status or type, then open a file.

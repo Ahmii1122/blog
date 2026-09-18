@@ -89,7 +89,7 @@ export default async function CasePage({ params }: Params) {
         <aside className="hidden lg:block">
           <nav className="sticky top-24 space-y-2 text-sm">
             {sections.map((section) => (
-              <a key={section.id} href={`#${section.id}`} className="block text-muted hover:text-crimson">
+              <a key={section.id} href={`#${section.id}`} className="block text-muted hover:text-crimson-text">
                 {section.label}
               </a>
             ))}
@@ -98,7 +98,7 @@ export default async function CasePage({ params }: Params) {
 
         <div className="space-y-16">
           <section id="story">
-            <p className="mb-4 text-[11px] uppercase tracking-[0.24em] text-crimson">The file</p>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.24em] text-crimson-text">The file</p>
             {story.content ? (
               <MarkdownBody content={story.content} />
             ) : (
@@ -117,7 +117,7 @@ export default async function CasePage({ params }: Params) {
 
           {story.people.length > 0 ? (
             <section id="people">
-              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-crimson">People involved</p>
+              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-crimson-text">People involved</p>
               <h2 className="font-serif text-3xl">The names in the file</h2>
               <div className="mt-8 grid gap-5 sm:grid-cols-2">
                 {story.people.map((person, index) => (
@@ -143,7 +143,7 @@ export default async function CasePage({ params }: Params) {
 
           {story.timeline.length > 0 ? (
             <section id="timeline">
-              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-crimson">Timeline</p>
+              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-crimson-text">Timeline</p>
               <h2 className="font-serif text-3xl">How it unfolded</h2>
               <ol className="mt-8 space-y-0">
                 {story.timeline.map((event, index) => (
@@ -169,7 +169,7 @@ export default async function CasePage({ params }: Params) {
 
           {embed || videos.length || images.length ? (
             <section id="evidence">
-              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-crimson">Evidence</p>
+              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-crimson-text">Evidence</p>
               <h2 className="font-serif text-3xl">Video and stills</h2>
               <div className="mt-8 space-y-6">
                 {embed ? <YouTubeEmbed src={embed} /> : null}
@@ -202,7 +202,7 @@ export default async function CasePage({ params }: Params) {
 
           {story.sources.length > 0 ? (
             <section id="sources">
-              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-crimson">Sources</p>
+              <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-crimson-text">Sources</p>
               <h2 className="font-serif text-3xl">Further reading</h2>
               <ul className="mt-6 space-y-3">
                 {story.sources.map((source, index) => (
@@ -212,7 +212,7 @@ export default async function CasePage({ params }: Params) {
                         href={source.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-foreground underline decoration-crimson/50 underline-offset-4 hover:text-crimson"
+                        className="text-foreground underline decoration-crimson/50 underline-offset-4 hover:text-crimson-text"
                       >
                         {source.title}
                       </a>

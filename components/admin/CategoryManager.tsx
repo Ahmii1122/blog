@@ -43,7 +43,7 @@ export function CategoryManager({ initial }: { initial: Category[] }) {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <p className="text-[11px] uppercase tracking-[0.24em] text-crimson">Taxonomy</p>
+      <p className="text-[11px] uppercase tracking-[0.24em] text-crimson-text">Taxonomy</p>
       <h1 className="mt-1 font-serif text-4xl">Categories</h1>
       <form onSubmit={create} className="mt-8 space-y-3 rounded-2xl border border-line bg-card p-5">
         <input
@@ -59,7 +59,7 @@ export function CategoryManager({ initial }: { initial: Category[] }) {
           placeholder="Short description"
           className="field"
         />
-        {error ? <p className="text-sm text-crimson">{error}</p> : null}
+        {error ? <p className="text-sm text-crimson-text">{error}</p> : null}
         <button className="rounded-full bg-crimson px-4 py-2 text-sm text-white">Add category</button>
       </form>
       <div className="mt-8 divide-y divide-line rounded-2xl border border-line">
@@ -71,7 +71,7 @@ export function CategoryManager({ initial }: { initial: Category[] }) {
                 {category.slug} · {category._count.stories} cases
               </p>
             </div>
-            <button onClick={() => remove(category.id)} className="text-sm text-muted hover:text-crimson">
+            <button onClick={() => remove(category.id)} className="text-sm text-muted hover:text-crimson-text">
               Delete
             </button>
           </div>

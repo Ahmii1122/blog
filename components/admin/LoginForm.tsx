@@ -51,7 +51,7 @@ export function LoginForm() {
           className="mt-1 h-11 w-full rounded-xl border border-line bg-background/80 px-3 text-left text-foreground"
         />
       </label>
-      {error ? <p className="text-left text-sm text-crimson">{error}</p> : null}
+      {error ? <p className="text-left text-sm text-crimson-text">{error}</p> : null}
       <button
         disabled={pending}
         className="h-11 w-full rounded-full bg-crimson text-sm font-medium text-white disabled:opacity-60"

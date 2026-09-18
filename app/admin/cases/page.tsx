@@ -11,7 +11,7 @@ export default async function AdminCasesPage() {
     <div className="mx-auto max-w-5xl">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-[11px] uppercase tracking-[0.24em] text-crimson">Library</p>
+          <p className="text-[11px] uppercase tracking-[0.24em] text-crimson-text">Library</p>
           <h1 className="mt-1 font-serif text-4xl">Cases</h1>
         </div>
         <Link href="/admin/cases/new" className="rounded-full bg-crimson px-4 py-2 text-sm text-white">
@@ -43,7 +43,7 @@ export default async function AdminCasesPage() {
                   {story.featured ? " · Featured" : ""}
                 </td>
                 <td className="px-4 py-3 text-right">
-                  <Link href={`/admin/cases/${story.id}`} className="text-crimson">
+                  <Link href={`/admin/cases/${story.id}`} className="text-crimson-text">
                     Edit
                   </Link>
                 </td>
