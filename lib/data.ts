@@ -148,6 +148,7 @@ export async function listStories(options?: {
   search?: string;
   sort?: "publishedAt" | "updatedAt";
   limit?: number;
+  cardsOnly?: boolean;
 }) {
   await connectMongo();
   const filter: Record<string, unknown> = {};
@@ -162,6 +163,11 @@ export async function listStories(options?: {
 
   const sortField = options?.sort === "updatedAt" ? "updatedAt" : "publishedAt";
   let query = Story.find(filter).populate("categoryId").sort({ [sortField]: -1 });
+  if (options?.cardsOnly) {
+    query = query.select(
+      "slug title excerpt coverImage year location status tags featured categoryId publishedAt",
+    );
+  }
   if (options?.limit) query = query.limit(options.limit);
   const rows = await query.lean();
   return rows.map((row) => mapStory(row as Record<string, unknown>));

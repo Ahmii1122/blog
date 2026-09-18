@@ -5,7 +5,7 @@ export async function SiteHeader() {
   const settings = await getSettings();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-background/80 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-[60] border-b border-line bg-background">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <Link href="/" className="group flex items-center gap-3">
           <span className="grid h-8 w-8 place-items-center rounded-sm bg-crimson text-[11px] font-semibold tracking-[0.2em] text-white">

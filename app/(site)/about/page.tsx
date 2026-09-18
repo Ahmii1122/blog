@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { getSettings } from "@/lib/settings";
 import { MarkdownBody } from "@/components/site/MarkdownBody";
 
+export const revalidate = 60;
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "About",
 };

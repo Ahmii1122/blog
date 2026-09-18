@@ -1,28 +1,38 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getStoryBySlug } from "@/lib/data";
+import { getCachedPublicCatalog, getCachedStoryBySlug } from "@/lib/public-data";
 import { splitTags, youtubeEmbedUrl } from "@/lib/youtube";
 import { roleLabel } from "@/lib/utils";
 import { ArrowLeft, User } from "lucide-react";
 import { MarkdownBody } from "@/components/site/MarkdownBody";
 import { StatusBadge } from "@/components/site/StatusBadge";
 import { YouTubeEmbed } from "@/components/site/YouTubeEmbed";
+import { CoverImage } from "@/components/site/CoverImage";
 
 type Params = { params: Promise<{ slug: string }> };
 
+export const revalidate = 60;
+export const dynamic = "force-static";
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const { stories } = await getCachedPublicCatalog();
+  return stories.map((story) => ({ slug: story.slug }));
+}
+
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const story = await getStoryBySlug(slug);
-  if (!story || !story.published) return { title: "Case not found" };
+  const story = await getCachedStoryBySlug(slug);
+  if (!story) return { title: "Case not found" };
   return { title: story.title, description: story.excerpt || undefined };
 }
 
 export default async function CasePage({ params }: Params) {
   const { slug } = await params;
-  const story = await getStoryBySlug(slug);
+  const story = await getCachedStoryBySlug(slug);
 
-  if (!story || !story.published) notFound();
+  if (!story) notFound();
 
   const embed = youtubeEmbedUrl(story.youtubeUrl);
   const tags = splitTags(story.tags);
@@ -40,8 +50,15 @@ export default async function CasePage({ params }: Params) {
     <article>
       <header className="relative min-h-[52vh] overflow-hidden">
         {story.coverImage ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={story.coverImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0">
+            <CoverImage
+              src={story.coverImage}
+              alt=""
+              priority
+              sizes="100vw"
+              className="object-cover object-top"
+            />
+          </div>
         ) : (
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(211,18,42,0.2),transparent_55%),#070708]" />
         )}

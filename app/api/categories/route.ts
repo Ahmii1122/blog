@@ -1,13 +1,7 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 import { isAdmin } from "@/lib/auth";
 import { createCategory } from "@/lib/data";
-
-function revalidate() {
-  revalidatePath("/");
-  revalidatePath("/cases");
-  revalidatePath("/admin/categories");
-}
+import { revalidatePublic } from "@/lib/cache";
 
 export async function POST(request: Request) {
   if (!(await isAdmin())) {
@@ -21,6 +15,6 @@ export async function POST(request: Request) {
   }
 
   const category = await createCategory(name, body.description?.trim() ?? "");
-  revalidate();
+  revalidatePublic();
   return NextResponse.json(category);
 }

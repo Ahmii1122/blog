@@ -1,20 +1,12 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 import { isAdmin } from "@/lib/auth";
 import { deleteStory, getStoryById, updateStory } from "@/lib/data";
 import { deleteCaseFolder } from "@/lib/storage";
+import { revalidatePublic } from "@/lib/cache";
 import { resolveStorySlug, storyScalars } from "@/lib/story-save";
 import type { StoryInput } from "@/lib/types";
 
 type Params = { params: Promise<{ id: string }> };
-
-function revalidateStory(slug: string) {
-  revalidatePath("/");
-  revalidatePath("/cases");
-  revalidatePath(`/cases/${slug}`);
-  revalidatePath("/admin");
-  revalidatePath("/admin/cases");
-}
 
 export async function PUT(request: Request, { params }: Params) {
   if (!(await isAdmin())) {
@@ -38,8 +30,8 @@ export async function PUT(request: Request, { params }: Params) {
   if (payload.publishedAt === undefined) delete payload.publishedAt;
 
   await updateStory(id, payload);
-  revalidateStory(existing.slug);
-  if (slug !== existing.slug) revalidateStory(slug);
+  revalidatePublic(existing.slug);
+  if (slug !== existing.slug) revalidatePublic(slug);
 
   return NextResponse.json({ id, slug });
 }
@@ -57,6 +49,6 @@ export async function DELETE(_request: Request, { params }: Params) {
 
   await deleteStory(id);
   await deleteCaseFolder(id);
-  revalidateStory(existing.slug);
+  revalidatePublic(existing.slug);
   return NextResponse.json({ ok: true });
 }

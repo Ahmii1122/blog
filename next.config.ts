@@ -9,7 +9,11 @@ const nextConfig: NextConfig = {
     proxyClientMaxBodySize: "100mb",
   },
   images: {
-    unoptimized: true,
+    minimumCacheTTL: 60 * 60 * 24 * 7,
+    remotePatterns: [
+      { protocol: "https", hostname: "**.supabase.co" },
+      { protocol: "https", hostname: "**.supabase.in" },
+    ],
   },
 };
 

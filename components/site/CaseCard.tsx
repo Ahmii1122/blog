@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CoverImage } from "./CoverImage";
 import { StatusBadge } from "./StatusBadge";
 
 type CaseCardProps = {
@@ -10,6 +11,7 @@ type CaseCardProps = {
   location?: string | null;
   status: string;
   categoryName?: string | null;
+  priority?: boolean;
 };
 
 export function CaseCard({
@@ -21,6 +23,7 @@ export function CaseCard({
   location,
   status,
   categoryName,
+  priority = false,
 }: CaseCardProps) {
   return (
     <Link
@@ -29,11 +32,12 @@ export function CaseCard({
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-card-2">
         {coverImage ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <CoverImage
             src={coverImage}
             alt=""
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            priority={priority}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+            className="object-cover transition duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full w-full items-end bg-[radial-gradient(circle_at_top_right,rgba(211,18,42,0.28),transparent_42%),linear-gradient(180deg,#16161c,#070708)] p-5">

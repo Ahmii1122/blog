@@ -1,5 +1,3 @@
-"use client";
-
 import Markdown from "react-markdown";
 
 export function MarkdownBody({ content }: { content: string }) {

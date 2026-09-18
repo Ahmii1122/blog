@@ -1,17 +1,9 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 import { isAdmin } from "@/lib/auth";
 import { createStory } from "@/lib/data";
+import { revalidatePublic } from "@/lib/cache";
 import { resolveStorySlug, storyScalars } from "@/lib/story-save";
 import type { StoryInput } from "@/lib/types";
-
-function revalidateStory(slug: string) {
-  revalidatePath("/");
-  revalidatePath("/cases");
-  revalidatePath(`/cases/${slug}`);
-  revalidatePath("/admin");
-  revalidatePath("/admin/cases");
-}
 
 export async function POST(request: Request) {
   if (!(await isAdmin())) {
@@ -29,7 +21,7 @@ export async function POST(request: Request) {
     ...data,
     publishedAt: data.published ? new Date() : null,
   });
-  revalidateStory(story.slug);
+  revalidatePublic(story.slug);
 
   return NextResponse.json({ id: story.id, slug: story.slug });
 }

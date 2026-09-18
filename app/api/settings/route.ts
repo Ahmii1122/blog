@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 import { isAdmin } from "@/lib/auth";
 import { getSettings, saveSettings, type SiteSettings } from "@/lib/settings";
+import { revalidatePublic } from "@/lib/cache";
 
 export async function GET() {
   if (!(await isAdmin())) {
@@ -24,8 +24,6 @@ export async function PUT(request: Request) {
     about: body.about ?? current.about,
   };
   await saveSettings(next);
-  revalidatePath("/");
-  revalidatePath("/about");
-  revalidatePath("/admin/settings");
+  revalidatePublic();
   return NextResponse.json(next);
 }
