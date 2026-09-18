@@ -48,7 +48,7 @@ export function CaseCard({
         <p className="text-[11px] uppercase tracking-[0.2em] text-muted">
           {[categoryName, year, location].filter(Boolean).join(" · ")}
         </p>
-        <h3 className="font-serif text-2xl leading-tight tracking-tight group-hover:text-crimson">
+        <h3 className="font-serif text-2xl leading-tight tracking-tight group-hover:text-crimson-text">
           {title}
         </h3>
         {excerpt ? (
