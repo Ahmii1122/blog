@@ -9,6 +9,7 @@
   --line: rgba(243, 239, 230, 0.1);
   --crimson: #d3122a;
   --crimson-dim: #8a1020;
+  --crimson-text: #ff6b7a;
   --amber: #d4a017;
 }
 
@@ -21,6 +22,7 @@
   --color-line: var(--line);
   --color-crimson: var(--crimson);
   --color-crimson-dim: var(--crimson-dim);
+  --color-crimson-text: var(--crimson-text);
   --color-amber: var(--amber);
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-instrument-serif);
@@ -75,7 +77,7 @@ body::before {
 }
 
 .story-body a {
-  color: var(--crimson);
+  color: var(--crimson-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -117,4 +119,10 @@ select:focus {
   background: #0c0c10;
   padding: 0.65rem 0.8rem;
   color: var(--foreground);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #c2bbb0;
+  opacity: 1;
 }
