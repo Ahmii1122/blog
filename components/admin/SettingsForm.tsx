@@ -29,7 +29,7 @@ export function SettingsForm({ initial }: { initial: SiteSettings }) {
 
   return (
     <form onSubmit={onSubmit} className="mx-auto max-w-2xl space-y-4">
-      <p className="text-[11px] uppercase tracking-[0.24em] text-crimson">Site</p>
+      <p className="text-[11px] uppercase tracking-[0.24em] text-crimson-text">Site</p>
       <h1 className="font-serif text-4xl">Settings</h1>
       <label className="block text-sm text-muted">
         Site name
@@ -64,7 +64,7 @@ export function SettingsForm({ initial }: { initial: SiteSettings }) {
           onChange={(e) => setForm({ ...form, about: e.target.value })}
         />
       </label>
-      {error ? <p className="text-sm text-crimson">{error}</p> : null}
+      {error ? <p className="text-sm text-crimson-text">{error}</p> : null}
       {saved ? <p className="text-sm text-emerald-400">Saved.</p> : null}
       <button disabled={pending} className="rounded-full bg-crimson px-5 py-2 text-sm text-white">
         {pending ? "Saving..." : "Save settings"}
