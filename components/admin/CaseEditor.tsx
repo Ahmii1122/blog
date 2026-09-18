@@ -157,7 +157,7 @@ export function CaseEditor({
     <div className="mx-auto max-w-4xl space-y-10 pb-20">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-[11px] uppercase tracking-[0.24em] text-crimson">
+          <p className="text-[11px] uppercase tracking-[0.24em] text-crimson-text">
             {initial?.id ? "Edit file" : "New file"}
           </p>
           <h1 className="mt-1 font-serif text-4xl">{title || "Untitled case"}</h1>
@@ -181,7 +181,7 @@ export function CaseEditor({
           </button>
         </div>
       </div>
-      {error ? <p className="text-sm text-crimson">{error}</p> : null}
+      {error ? <p className="text-sm text-crimson-text">{error}</p> : null}
 
       <section className="space-y-4 rounded-2xl border border-line bg-card p-5">
         <h2 className="font-serif text-2xl">Basics</h2>
@@ -349,7 +349,7 @@ export function CaseEditor({
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={person.photo} alt="" className="h-16 w-16 rounded-lg object-cover" />
               ) : null}
-              <button type="button" className="ml-auto text-muted hover:text-crimson" onClick={() => setPeople(people.filter((_, i) => i !== index))}>
+              <button type="button" className="ml-auto text-muted hover:text-crimson-text" onClick={() => setPeople(people.filter((_, i) => i !== index))}>
                 <Trash2 size={16} />
               </button>
             </div>
@@ -393,7 +393,7 @@ export function CaseEditor({
               rows={2}
               className="field"
             />
-            <button type="button" className="ml-auto text-muted hover:text-crimson" onClick={() => setTimeline(timeline.filter((_, i) => i !== index))}>
+            <button type="button" className="ml-auto text-muted hover:text-crimson-text" onClick={() => setTimeline(timeline.filter((_, i) => i !== index))}>
               <Trash2 size={16} />
             </button>
           </div>
@@ -437,7 +437,7 @@ export function CaseEditor({
                   }}
                   className="field"
                 />
-                <button type="button" className="text-muted hover:text-crimson" onClick={() => setMedia(media.filter((_, i) => i !== index))}>
+                <button type="button" className="text-muted hover:text-crimson-text" onClick={() => setMedia(media.filter((_, i) => i !== index))}>
                   <Trash2 size={16} />
                 </button>
               </div>
@@ -469,7 +469,7 @@ export function CaseEditor({
               }}
               className="field"
             />
-            <button type="button" className="text-muted hover:text-crimson" onClick={() => setSources(sources.filter((_, i) => i !== index))}>
+            <button type="button" className="text-muted hover:text-crimson-text" onClick={() => setSources(sources.filter((_, i) => i !== index))}>
               <Trash2 size={16} />
             </button>
           </div>
@@ -477,7 +477,7 @@ export function CaseEditor({
       </Repeater>
 
       {initial?.id ? (
-        <button type="button" onClick={remove} className="text-sm text-muted hover:text-crimson">
+        <button type="button" onClick={remove} className="text-sm text-muted hover:text-crimson-text">
           Delete this case
         </button>
       ) : null}
