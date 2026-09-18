@@ -11,7 +11,7 @@ export async function SiteHeader() {
           <span className="grid h-8 w-8 place-items-center rounded-sm bg-crimson text-[11px] font-semibold tracking-[0.2em] text-white">
             CC
           </span>
-          <span className="font-serif text-xl tracking-tight text-foreground group-hover:text-crimson">
+          <span className="font-serif text-xl tracking-tight text-foreground group-hover:text-crimson-text">
             {settings.siteName}
           </span>
         </Link>
