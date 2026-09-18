@@ -49,7 +49,7 @@ export function AdminNav() {
       </nav>
       <button
         onClick={logout}
-        className="m-3 flex items-center gap-2 rounded-xl px-3 py-2 text-left text-sm text-muted hover:text-crimson"
+        className="m-3 flex items-center gap-2 rounded-xl px-3 py-2 text-left text-sm text-muted hover:text-crimson-text"
       >
         <LogOut size={16} />
         Sign out
